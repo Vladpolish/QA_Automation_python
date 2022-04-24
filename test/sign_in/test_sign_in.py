@@ -1,7 +1,7 @@
 from src.testproject.classes import DriverStepSettings, StepSettings
 from src.testproject.decorator import report_assertion_errors
 from src.testproject.enums import SleepTimingType
-from src.testproject.sdk.drivers import webdriver
+from selenium.webdriver.chrome.webdriver import webdriver
 from subtests import test_sign_in
 import pytest
 
