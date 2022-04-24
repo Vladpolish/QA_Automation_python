@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a25cfca5-00aa-4851-9f43-e9abb22b0a7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/sign_in/css_locators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/sign_in/t_sign_in.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/sign_in/t_sign_in.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +31,11 @@
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Vlad\Work\Python_QA\QA_Automation_python\test\sign_in" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Python tests in t_sign_in.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="QA_Automation_python" />
