@@ -10,10 +10,14 @@ import unittest, time, re
 
 # from test/sign_in import project_parameters
 # import sys
-# sys.path.insert(0, '/test/sign_in/')
-import test.sign_in.project_parameters
+# sys.path.insert(0, '')
+# import test.sign_in.project_parameters
+# from test.sign_in import project_parameters
 
+# import sys
+import project_parameters
 
+# sys.path.insert(1, '/test/sign_in/')
 
 
 class TestSignIn(unittest.TestCase):
@@ -23,7 +27,7 @@ class TestSignIn(unittest.TestCase):
         self.base_url = "https://www.blazedemo.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
-    
+
     def test_sign_in(self):
         driver = self.driver
         # Label: Test
@@ -31,28 +35,31 @@ class TestSignIn(unittest.TestCase):
 
         driver.get(f'{project_parameters.app_url}')
 
-        username = driver.find_element_by_id("username")
+        # username = driver.find_element_by_id("username")
+        username = driver.find_element(By.CSS_SELECTOR, "#username")
         username.click()
         username.send_keys(f'{project_parameters.email}')
 
-        password = driver.find_element_by_id("password")
+        password = driver.find_element(By.CSS_SELECTOR, "#password")
         password.click()
         password.send_keys(f'{project_parameters.password}')
 
+        driver.find_element(By.CSS_SELECTOR, "[type='submit']").click()
 
-
-        driver.find_element_by_css_selector("button.mb-2.btn.btn-primary.btn-block.btn-lg").click()
-    
     def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
+        try:
+            self.driver.find_element(by=how, value=what)
+        except NoSuchElementException as e:
+            return False
         return True
-    
+
     def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
+        try:
+            self.driver.switch_to_alert()
+        except NoAlertPresentException as e:
+            return False
         return True
-    
+
     def close_alert_and_get_its_text(self):
         try:
             alert = self.driver.switch_to_alert()
@@ -62,11 +69,13 @@ class TestSignIn(unittest.TestCase):
             else:
                 alert.dismiss()
             return alert_text
-        finally: self.accept_next_alert = True
-    
+        finally:
+            self.accept_next_alert = True
+
     def tearDown(self):
         self.driver.quit()
         self.assertEqual([], self.verificationErrors)
+
 
 if __name__ == "__main__":
     unittest.main()
