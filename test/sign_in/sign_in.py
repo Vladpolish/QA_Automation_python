@@ -22,13 +22,19 @@ class TestSignIn(unittest.TestCase):
         driver = self.driver
         # Label: Test
         # ERROR: Caught exception [ERROR: Unsupported command [resizeWindow | 1366,610 | ]]
-        driver.get("https://qat.d12dvpsxvwz2ny.amplifyapp.com/")
+
+        driver.get(f'{project_parameters.app_url}')
+
         username = driver.find_element_by_id("username")
         username.click()
         username.send_keys(f'{project_parameters.email}')
 
+        password = driver.find_element_by_id("password")
+        password.click()
+        password.send_keys(f'{project_parameters.password}')
 
-        driver.find_element_by_id("password").click()
+
+
         driver.find_element_by_css_selector("button.mb-2.btn.btn-primary.btn-block.btn-lg").click()
     
     def is_element_present(self, how, what):

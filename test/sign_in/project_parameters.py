@@ -1,2 +1,3 @@
 email = "vladislav+auto@myadvocate.co"  # valid email
-password = ""  # This was a SECRET parameter and therefore its value is empty
+password = "12345678"
+app_url = "https://qat.d12dvpsxvwz2ny.amplifyapp.com/"
