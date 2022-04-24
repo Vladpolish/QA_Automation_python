@@ -16,7 +16,7 @@ import unittest, time, re
 
 # import sys
 import project_parameters
-
+import css_locators
 # sys.path.insert(1, '/test/sign_in/')
 
 
@@ -36,15 +36,17 @@ class TestSignIn(unittest.TestCase):
         driver.get(f'{project_parameters.app_url}')
 
         # username = driver.find_element_by_id("username")
-        username = driver.find_element(By.CSS_SELECTOR, "#username")
+        username = driver.find_element(By.CSS_SELECTOR, css_locators.username)
         username.click()
         username.send_keys(f'{project_parameters.email}')
 
-        password = driver.find_element(By.CSS_SELECTOR, "#password")
+        password = driver.find_element(By.CSS_SELECTOR, css_locators.password)
         password.click()
         password.send_keys(f'{project_parameters.password}')
 
-        driver.find_element(By.CSS_SELECTOR, "[type='submit']").click()
+        submit_button = driver.find_element(By.CSS_SELECTOR, css_locators.submit)
+        submit_button.click()
+        driver.find_element(By.CSS_SELECTOR, "[type='submid']").click()
 
     def is_element_present(self, how, what):
         try:
