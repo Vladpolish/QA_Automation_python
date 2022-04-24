@@ -6,8 +6,14 @@ from selenium.webdriver.support.ui import Select
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 import unittest, time, re
+# import test.sign_in
 
-from test.sign_in import project_parameters
+# from test/sign_in import project_parameters
+# import sys
+# sys.path.insert(0, '/test/sign_in/')
+import test.sign_in.project_parameters
+
+
 
 
 class TestSignIn(unittest.TestCase):
