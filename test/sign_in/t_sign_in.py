@@ -1,22 +1,23 @@
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import Select
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import NoAlertPresentException
-import unittest, time, re
-# import test.sign_in
+import time
+import unittest
 
+from selenium import webdriver
+from selenium.common.exceptions import NoAlertPresentException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.common.by import By
+
+import css_locators
+# import sys
+import project_parameters
+
+
+# import test.sign_in
 # from test/sign_in import project_parameters
 # import sys
 # sys.path.insert(0, '')
 # import test.sign_in.project_parameters
 # from test.sign_in import project_parameters
-
-# import sys
-import project_parameters
-import css_locators
 # sys.path.insert(1, '/test/sign_in/')
 
 
@@ -46,7 +47,8 @@ class TestSignIn(unittest.TestCase):
 
         submit_button = driver.find_element(By.CSS_SELECTOR, css_locators.submit)
         submit_button.click()
-        driver.find_element(By.CSS_SELECTOR, "[type='submid']").click()
+
+        time.sleep(10)
 
     def is_element_present(self, how, what):
         try:
