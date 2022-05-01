@@ -8,7 +8,6 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 import css_locators
-# import sys
 import project_parameters
 
 
@@ -25,30 +24,39 @@ class TestSignIn(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.implicitly_wait(30)
-        self.base_url = "https://www.blazedemo.com/"
         self.verificationErrors = []
         self.accept_next_alert = True
 
     def test_sign_in(self):
         driver = self.driver
-        # Label: Test
-        # ERROR: Caught exception [ERROR: Unsupported command [resizeWindow | 1366,610 | ]]
+        self.open_login_page(driver)
+        self.sign_in(driver)
 
-        driver.get(f'{project_parameters.app_url}')
+        # my_profile = driver.find_element(By.LINK_TEXT, 'My Profile')
+        # my_profile.click()
+        #
+        # sign_out = driver.find_element(By.LINK_TEXT, 'Sign Out')
+        # sign_out.click()
 
-        # username = driver.find_element_by_id("username")
+
+    def sign_in(self, driver):
+        # Signin
         username = driver.find_element(By.CSS_SELECTOR, css_locators.username)
         username.click()
-        username.send_keys(f'{project_parameters.email}')
 
+        username.send_keys(f'{project_parameters.email}')
         password = driver.find_element(By.CSS_SELECTOR, css_locators.password)
         password.click()
-        password.send_keys(f'{project_parameters.password}')
 
+        password.send_keys(f'{project_parameters.password}')
         submit_button = driver.find_element(By.CSS_SELECTOR, css_locators.submit)
         submit_button.click()
 
         time.sleep(10)
+
+    def open_login_page(self, driver):
+        # Open login page
+        driver.get(f'{project_parameters.app_url}')
 
     def is_element_present(self, how, what):
         try:
