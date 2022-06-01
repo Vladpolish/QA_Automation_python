@@ -8,6 +8,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 import css_locators
+import xpath_locators
 import project_parameters
 
 
@@ -26,18 +27,20 @@ class TestSignIn(unittest.TestCase):
         self.driver.implicitly_wait(30)
         self.verificationErrors = []
         self.accept_next_alert = True
+        self.driver.set_window_size(1920, 1080)
 
     def test_sign_in(self):
         driver = self.driver
         self.open_login_page(driver)
         self.sign_in(driver)
+        self.open_profile_dropdown(driver)
 
-        # my_profile = driver.find_element(By.LINK_TEXT, 'My Profile')
-        # my_profile.click()
-        #
         # sign_out = driver.find_element(By.LINK_TEXT, 'Sign Out')
         # sign_out.click()
 
+    def open_profile_dropdown(self, driver):
+        my_profile = driver.find_element(By.XPATH, xpath_locators.my_profile)
+        my_profile.click()
 
     def sign_in(self, driver):
         # Signin
@@ -52,7 +55,9 @@ class TestSignIn(unittest.TestCase):
         submit_button = driver.find_element(By.CSS_SELECTOR, css_locators.submit)
         submit_button.click()
 
-        time.sleep(10)
+        # time.sleep(10)
+
+
 
     def open_login_page(self, driver):
         # Open login page
